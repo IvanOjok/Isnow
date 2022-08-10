@@ -54,4 +54,5 @@ dependencies {
     implementation 'com.hbb20:ccp:2.5.4'
     implementation 'io.github.chaosleung:pinview:1.4.4'
 
+    implementation 'com.google.code.gson:gson:2.9.0'
 }

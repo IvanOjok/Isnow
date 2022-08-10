@@ -24,6 +24,10 @@
 
     <string name="name">Mr. Paul Mugabi</string>
     <string name="id">Member ID: IS0000001</string>
+    <string name="lo">Loan Amount: </string>
+    <string name="loan">UGX. 150,000</string>
+    <string name="contribute">Total Contributions: </string>
+    <string name="contribution">UGX. 150,000,000</string>
     <string name="amount">Amount (UGX)</string>
     <string name="pin">PIN</string>
     <string name="pin_change">Change PIN</string>

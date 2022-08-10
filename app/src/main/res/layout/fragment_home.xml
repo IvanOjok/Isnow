@@ -44,19 +44,75 @@
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/name" />
 
+        <TextView
+            android:id="@+id/lo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/poppins"
+            android:layout_margin="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="@string/lo"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+        <TextView
+            android:id="@+id/loan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:fontFamily="@font/lato_light"
+            android:gravity="center"
+            android:text="@string/loan"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/lo"
+            app:layout_constraintStart_toEndOf="@+id/lo"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/cont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:text="@string/contribute"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lo" />
+
+        <TextView
+            android:id="@+id/contribution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:fontFamily="@font/lato_light"
+            android:gravity="center"
+            android:text="@string/contribution"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/cont"
+            app:layout_constraintStart_toEndOf="@+id/cont"
+            app:layout_constraintTop_toTopOf="@+id/cont" />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_25sdp"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@+id/cont">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/borrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/icon_color"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/g33"
@@ -107,6 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/icon_color"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -163,6 +220,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3">
 
             <LinearLayout
@@ -176,9 +234,9 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recent"
-                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -187,12 +245,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/lato_black"
-                        android:text="@string/no_recent"
-                        android:textStyle="bold"
-                        android:textSize="@dimen/_16ssp"
                         android:layout_margin="@dimen/_50sdp"
+                        android:fontFamily="@font/lato_black"
                         android:gravity="center"
+                        android:text="@string/no_recent"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <View
