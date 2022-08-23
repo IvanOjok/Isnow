@@ -11,4 +11,5 @@
     <color name="gray">#CCCCCC</color>
     <color name="text_title_color">#07415a</color>
     <color name="icon_color">#4ac4f3</color>
+    <color name="red">#ff0000</color>
 </resources>

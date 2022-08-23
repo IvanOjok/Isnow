@@ -42,6 +42,8 @@
         <item name="colorPrimaryVariant">@color/text_title_color</item>
         <item name="colorSecondary">@color/icon_color</item>
         <item name="android:statusBarColor">@color/text_title_color</item>
+
+        <item name="pinViewStyle">@style/PinWidget.PinView</item>
     </style>
 
 <!--    <style name="AlerterStyle">-->
@@ -173,6 +175,7 @@
 <!--    Pin view style-->
     <style name="customPinViewStyle">
         <item name="cursorColor">@color/text_title_color</item>
+        <item name="pinViewStyle">@style/PinWidget.PinView</item>
         <item name="cursorWidth">2dp</item>
         <item name="hideLineWhenFilled">false</item>
         <item name="android:editable">true</item>

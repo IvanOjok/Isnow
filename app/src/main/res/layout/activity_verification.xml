@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp"
+    tools:context=".ui.auth.Verification">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/civLogo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:src="@drawable/logo"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clPinVerify"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/civLogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btnSend"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/_50sdp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mtvPhoneLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_black"
+                    android:gravity="center"
+                    android:text="@string/phone_number"
+                    android:textSize="@dimen/_16ssp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phoneLy"
+                    android:layout_width="match_parent"
+                    android:padding="2dp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/mtvPhoneLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_15ssp"
+                        android:hint="@string/member_id"
+                        android:textColor="@color/black"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--                <com.hbb20.CountryCodePicker-->
+                <!--                    android:id="@+id/ccp"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    app:ccp_autoDetectCountry="true"-->
+                <!--                    app:ccp_clickable="false"-->
+                <!--                    app:ccp_customMasterCountries="UG"-->
+                <!--                    app:ccp_defaultLanguage="ENGLISH"-->
+                <!--                    app:ccp_defaultNameCode="UG"-->
+                <!--                    app:ccp_showArrow="false"-->
+                <!--                    app:ccp_showFlag="false"-->
+                <!--                    app:ccp_showFullName="false"-->
+                <!--                    app:ccp_showNameCode="false"-->
+                <!--                    app:ccp_showPhoneCode="true"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="parent"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--                <EditText-->
+                <!--                    android:id="@+id/etPhoneNumber"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:background="@android:color/transparent"-->
+                <!--                    android:inputType="phone"-->
+                <!--                    android:maxLength="10"-->
+                <!--                    android:maxLines="1"-->
+                <!--                    android:hint="@string/member_id"-->
+                <!--                    android:textColor="@color/black"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="@id/ccp"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toEndOf="@id/ccp"-->
+                <!--                    app:layout_constraintTop_toTopOf="@id/ccp" />-->
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ilPin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneLy">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/password"
+                        android:imeActionLabel="@string/password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:textSize="@dimen/_15ssp"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mtvTest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/red"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ilPin" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSend"
+            style="@style/PrimaryBtnStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_light"
+            android:text="@string/next"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clCode"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintTop_toBottomOf="@id/civLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btnVerifyCode">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mtvCodeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:text="@string/code"
+                    android:textSize="@dimen/_16ssp"
+                    android:fontFamily="@font/lato_black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.chaos.view.PinView
+                    android:id="@+id/codePinView"
+                    style="@style/PinWidget.PinView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="true"
+                    android:hint="0000"
+                    android:itemBackground="@color/gray"
+                    android:inputType="text"
+                    android:padding="@dimen/_12sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_22ssp"
+                    android:textStyle="bold"
+                    app:cursorColor="@color/text_title_color"
+                    app:cursorWidth="2dp"
+                    app:hideLineWhenFilled="true"
+                    app:itemCount="4"
+                    app:itemHeight="48dp"
+                    app:itemRadius="5dp"
+                    app:itemSpacing="12dp"
+                    app:itemWidth="48dp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mtvCodeLabel"
+                    app:lineColor="@color/icon_color"
+                    app:lineWidth="2dp"
+                    app:viewType="rectangle" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mtvTest2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/red"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/codePinView" />
+
+
+                <LinearLayout
+                    android:id="@+id/resend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/codePinView">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/didn_t_receive_the_otp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/mtvResend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:background="@drawable/action_item_ripple_bg"
+                        android:text="@string/resend"
+                        android:textColor="?colorSecondary"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/mtvTimeCounter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:background="@drawable/action_item_ripple_bg"
+                        android:textColor="@color/text_title_color"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        android:text="Resend in 30s" />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVerifyCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/PrimaryBtnStyle"
+            android:text="@string/verify"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="64dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

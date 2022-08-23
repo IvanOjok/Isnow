@@ -45,6 +45,19 @@
             app:layout_constraintTop_toBottomOf="@id/name" />
 
         <TextView
+            android:id="@+id/club"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:text="@string/id"
+            android:textSize="@dimen/_14ssp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+
+        <TextView
             android:id="@+id/lo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,7 +69,7 @@
             android:textSize="@dimen/_14ssp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView2" />
+            app:layout_constraintTop_toBottomOf="@id/club" />
 
         <TextView
             android:id="@+id/loan"
@@ -70,7 +83,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/lo"
             app:layout_constraintStart_toEndOf="@+id/lo"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/club" />
 
         <TextView
             android:id="@+id/cont"

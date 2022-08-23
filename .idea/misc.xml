@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_dropdown_item_1line.xml" value="0.15364583333333334" />
         <entry key="..\:/Users/Softbox 001/AndroidStudioProjects/iSnow/app/src/main/res/drawable/action_item_ripple_bg.xml" value="0.1325" />
         <entry key="..\:/Users/Softbox 001/AndroidStudioProjects/iSnow/app/src/main/res/drawable/et_border_item_bg.xml" value="0.1325" />
         <entry key="..\:/Users/Softbox 001/AndroidStudioProjects/iSnow/app/src/main/res/drawable/pin_view_state_selected.xml" value="0.1325" />
@@ -15,7 +16,13 @@
         <entry key="..\:/Users/Softbox 001/AndroidStudioProjects/iSnow/app/src/main/res/layout/layout_main_toolbar.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Softbox 001/AndroidStudioProjects/iSnow/app/src/main/res/layout/pin_edit_text.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Softbox 001/AndroidStudioProjects/iSnow/app/src/main/res/layout/success_layout.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.16503021240234372" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15364583333333334" />
+        <entry key="app/src/main/res/layout/activity_verification.xml" value="0.15364583333333334" />
+        <entry key="app/src/main/res/layout/fragment_borrow.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.24072265625000003" />
+        <entry key="app/src/main/res/layout/layout_groups.xml" value="0.15260416666666668" />
+        <entry key="app/src/main/res/layout/layout_progress_bar.xml" value="0.15364583333333334" />
       </map>
     </option>
   </component>

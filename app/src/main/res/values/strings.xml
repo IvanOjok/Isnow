@@ -15,6 +15,10 @@
 
     <string name="borrow">Borrow</string>
     <string name="borrow_amount">Enter amount to borrow</string>
+    <string name="loan_product">Enter loan product</string>
+    <string name="loan_p">Loan Product</string>
+    <string name="payment_method">Enter Payment Method</string>
+    <string name="pay">Payment Method</string>
     <string name="repay">Repay</string>
     <string name="repay_amount">Enter amount to repay</string>
     <string name="recent">Recent Transactions</string>
@@ -31,6 +35,8 @@
     <string name="amount">Amount (UGX)</string>
     <string name="pin">PIN</string>
     <string name="pin_change">Change PIN</string>
+
+    <string name="select">Select Investment Club</string>
 
     <string name="logout">LogOut</string>
     <string name="finish">Finish</string>
