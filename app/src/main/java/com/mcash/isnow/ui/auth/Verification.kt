@@ -23,6 +23,8 @@ class Verification : BaseActivity() {
         supportActionBar?.hide()
 
         val ic = intent.getStringExtra("id")
+        Log.d("IC intent", ic?: "")
+        insertIC(ic!!)
         val email = getEmail()
 
         with(binding){
@@ -87,8 +89,9 @@ class Verification : BaseActivity() {
                         mtvTest.text = "Enter Correct Password"
                     }
                     else -> {
-                        viewModel.loginRequest(id.text.toString(), ic!!, etPin.text.toString())
-                        insertIC(ic)
+                        val c = getIC()
+                        viewModel.loginRequest(id.text.toString(), c, etPin.text.toString())
+
                     }
                 }
             }
@@ -100,7 +103,8 @@ class Verification : BaseActivity() {
                         mtvTest.text = "Enter Correct OTP"
                     }
                     else -> {
-                        viewModel.verifyOTP(id.text.toString(), ic!!,  etPin.text.toString(), codePinView.text.toString())
+                        val c = getIC()
+                        viewModel.verifyOTP(id.text.toString(), c,  etPin.text.toString(), codePinView.text.toString())
                     }
                 }
             }

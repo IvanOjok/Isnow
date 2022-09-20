@@ -1,10 +1,7 @@
 package com.mcash.isnow.retrofit
 
 import com.mcash.isnow.model.*
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface AuthService {
 
@@ -22,4 +19,18 @@ interface AuthService {
 
     @POST("borrow")
     suspend fun borrow(@Body params: HashMap<String, Any>): Borrow
+
+    @POST("repay_loan")
+    suspend fun repayLoan(@Body params: HashMap<String, Any>): LoanRepay
+
+    @POST("add_contribution")
+    suspend fun makeContribution(@Body params: HashMap<String, Any>): Contribution
+
+    @POST("contributions")
+    suspend fun getContProducts(@Body params: HashMap<String, Any>): ContributionProducts
+
+    @POST("contributions/{id}")
+    suspend fun getContList(@Path("id") id:String, @Body params: HashMap<String, Any>): ContributionList
+
+
 }

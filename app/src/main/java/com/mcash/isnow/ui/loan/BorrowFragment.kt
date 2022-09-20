@@ -26,43 +26,6 @@ class BorrowFragment : BaseFragment<FragmentBorrowBinding>(FragmentBorrowBinding
 
     private val viewModel: BorrowViewModel by viewModels()
 
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        // Inflate the layout for this fragment
-//        val root = inflater.inflate(R.layout.fragment_borrow, container, false)
-//
-//        val amt = root.findViewById<TextInputEditText>(R.id.amount)
-//        val btnBorrow = root.findViewById<MaterialButton>(R.id.btnBorrow)
-//
-//        btnBorrow.setOnClickListener {
-//            val amount = amt.text.toString()
-//            if (amount.isNotEmpty()){
-//                AlertDialog.Builder(requireContext()).setTitle("Borrow")
-//                    .setMessage("You are requesting to borrow UGX $amount. \n Enter Your pin to confirm.")
-//                    .setView(R.layout.pin_edit_text)
-//                    .setCancelable(true)
-//                    .setPositiveButton("OK"
-//                    ) { p0, p1 ->
-//
-//                        p0?.dismiss()
-//                        showBottomNavigation()
-//                    }
-//                    .setNegativeButton("Cancel"){p0, p1 ->
-//                        p0.dismiss()
-//                    }
-//                    .create()
-//                    .show()
-//            }
-//            else{
-//                Toast.makeText(requireContext(), "Enter Correct Amount", Toast.LENGTH_SHORT).show()
-//            }
-//
-//        }
-//        return root
-//    }
-
     private fun showBottomNavigation() {
         val sheet = BottomSheetDialog(requireContext())
         sheet.setContentView(R.layout.success_layout)
@@ -84,7 +47,10 @@ class BorrowFragment : BaseFragment<FragmentBorrowBinding>(FragmentBorrowBinding
         with(binding){
             with(viewModel){
 
-                viewModel.getLoanProducts(ic.toInt(), email!!)
+                if (ic != null){
+                    viewModel.getLoanProducts(ic.toInt(), email!!)
+                }
+
 
                 productState.observe(viewLifecycleOwner){
                     when(it){
@@ -169,9 +135,10 @@ class BorrowFragment : BaseFragment<FragmentBorrowBinding>(FragmentBorrowBinding
                         val k = products!!.filterValues { it ==  product.text.toString() }.keys
                         val m = method!!.filterValues { it == payment.text.toString() }.keys
                         k.first()
+
                         viewModel.borrow(
                             email!!,
-                            ic.toInt(),
+                            ic!!.toInt(),
                             m.first(),
                             k.first(),
                             amount.text.toString().toInt()

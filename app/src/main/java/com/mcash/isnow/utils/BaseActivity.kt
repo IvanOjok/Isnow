@@ -40,8 +40,8 @@ abstract class BaseActivity: AppCompatActivity() {
         editor.putString(KEY_CLUB, account.data!!.summary!!.investiment_club_name)
         editor.putString(KEY_LOAN, account.data!!.summary!!.loans.toString())
         editor.putString(KEY_CONT, account.data!!.summary!!.credit_limit_contributions.toString())
+        editor.putString(KEY_GENDER, null)
         editor.apply()
-        editor.commit()
     }
 
     fun getUser() : User{
@@ -52,8 +52,9 @@ abstract class BaseActivity: AppCompatActivity() {
         val club = pref.getString(KEY_CLUB, "club")
         val loan = pref.getString(KEY_LOAN, "loan")
         val contributions = pref.getString(KEY_CONT, "cont")
+        val gender = pref.getString(KEY_GENDER, "m")
 
-        return User(name, id, ic, club, loan, contributions)
+        return User(name, id, ic, club, loan, contributions, gender)
 
     }
 
@@ -62,12 +63,11 @@ abstract class BaseActivity: AppCompatActivity() {
         val editor = pref.edit()
         editor.putString(KEY_IC, ic)
         editor.apply()
-        editor.commit()
     }
 
     fun getIC(): String {
         val pref = init()
-        val ic = pref.getString(KEY_IC, "ic")
+        val ic = pref.getString(KEY_IC, null)
         return ic!!
     }
 
@@ -76,7 +76,6 @@ abstract class BaseActivity: AppCompatActivity() {
         val editor = pref.edit()
         editor.putString(KEY_EMAIL, email)
         editor.apply()
-        editor.commit()
     }
 
     fun getEmail(): String? {

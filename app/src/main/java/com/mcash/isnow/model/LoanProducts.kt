@@ -1,7 +1,5 @@
 package com.mcash.isnow.model
 
-import com.google.gson.annotations.SerializedName
-
 data class LoanProducts(
     var message:String?,
     var status_code: Int?,

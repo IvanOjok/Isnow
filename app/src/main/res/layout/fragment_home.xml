@@ -230,6 +230,7 @@
             tools:layout_editor_absoluteX="6dp" />
 
         <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="5dp"
@@ -248,14 +249,16 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recent"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
+                        android:layout_height="match_parent"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:listitem="@layout/bottom_nav" />
+                        tools:listitem="@layout/layout_history_view" />
 
                     <TextView
+                        android:id="@+id/noRecent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_50sdp"
@@ -277,6 +280,17 @@
             </LinearLayout>
 
         </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:indeterminateTint="@color/icon_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

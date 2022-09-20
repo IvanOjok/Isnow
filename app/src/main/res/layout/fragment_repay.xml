@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".RepayFragment">
+    tools:context=".ui.repay.RepayFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageView"
         android:layout_width="@dimen/_90sdp"
         android:layout_height="@dimen/_90sdp"
-        android:layout_margin="@dimen/_50sdp"
+        android:layout_margin="@dimen/_30sdp"
         android:src="@drawable/back"
         app:civ_border_color="@color/text_title_color"
         app:civ_border_width="@dimen/_2sdp"
@@ -31,39 +31,288 @@
         app:layout_constraintTop_toTopOf="@+id/circleImageView"
         app:tint="@color/text_title_color" />
 
+
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/mtvPhoneLabel"
+        android:id="@+id/mtvCont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lato_black"
-        android:layout_marginTop="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_25sdp"
         android:layout_marginStart="@dimen/_20sdp"
-        android:text="@string/repay_amount"
+        android:text="@string/repay_type"
         android:textSize="@dimen/_16ssp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phoneLy"
-        android:layout_width="match_parent"
-        android:padding="2dp"
-        android:layout_margin="@dimen/_20sdp"
-        app:layout_constraintTop_toBottomOf="@+id/mtvPhoneLabel"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/amount"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contLy"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="#E6E3E3"
+        app:endIconMode="dropdown_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mtvCont">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/type"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:maxLength="10"
+            android:hint="@string/repay_type"
             android:maxLines="1"
-            android:textSize="@dimen/_15ssp"
-            android:hint="@string/amount"
             android:textColor="@color/black"
-            />
+            android:textSize="@dimen/_15ssp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/repayError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_method"
+        android:layout_margin="@dimen/_2sdp"
+        android:gravity="center"
+        android:textColor="@color/red"
+        android:visibility="gone"
+        android:textSize="@dimen/_12ssp"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contLy" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loanLay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/contLy">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvProductLy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/lato_black"
+            android:text="@string/loan_product"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/productLy"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="#E6E3E3"
+            app:endIconMode="dropdown_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtvProductLy">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/product"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/loan_p"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvPayLy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_black"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="@string/payment_method"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productLy" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/payLy"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/lato_black"
+            android:background="#E6E3E3"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:endIconMode="dropdown_menu"
+            android:hint="@string/pay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtvPayLy">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/payment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxLines="1"
+                android:lines="1"
+                android:layout_margin="@dimen/_2sdp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvPhoneLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/lato_black"
+            android:text="@string/repay_amount"
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/payLy" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneLy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:padding="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtvPhoneLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/amount"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/loanError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_method"
+            android:layout_margin="@dimen/_2sdp"
+            android:gravity="center"
+            android:textColor="@color/red"
+            android:visibility="gone"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneLy" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contLay"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/contLy">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvProductL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/lato_black"
+            android:text="@string/cont_product"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/productL"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="#E6E3E3"
+            app:endIconMode="dropdown_menu"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtvProductL">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/contProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/cont_p"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/mtvPhoneLabe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/lato_black"
+            android:text="@string/cont_amount"
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productL" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:padding="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mtvPhoneLabe">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/contAmount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/amount"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/contError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_method"
+            android:layout_margin="@dimen/_2sdp"
+            android:gravity="center"
+            android:textColor="@color/red"
+            android:visibility="gone"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneL" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRepay"

@@ -18,8 +18,13 @@
     <string name="loan_product">Enter loan product</string>
     <string name="loan_p">Loan Product</string>
     <string name="payment_method">Enter Payment Method</string>
+    <string name="cont_amount">Enter amount to contribute</string>
+    <string name="cont_product">Enter contribution type</string>
+    <string name="cont_p">Contribution Product</string>
+
     <string name="pay">Payment Method</string>
-    <string name="repay">Repay</string>
+    <string name="repay">Deposit</string>
+    <string name="repay_type">Deposit Type</string>
     <string name="repay_amount">Enter amount to repay</string>
     <string name="recent">Recent Transactions</string>
     <string name="no_recent">No Recent Transactions</string>
@@ -35,6 +40,10 @@
     <string name="amount">Amount (UGX)</string>
     <string name="pin">PIN</string>
     <string name="pin_change">Change PIN</string>
+    <string name="edit">Edit Profile</string>
+    <string name="new_name">Enter New Member Name</string>
+    <string name="new_gen">Enter Your gender</string>
+    <string name="save">Save Profile</string>
 
     <string name="select">Select Investment Club</string>
 

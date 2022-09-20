@@ -1,10 +1,7 @@
 package com.mcash.isnow.impl
 
 import android.util.Log
-import com.mcash.isnow.model.Account
-import com.mcash.isnow.model.Borrow
-import com.mcash.isnow.model.LoanProducts
-import com.mcash.isnow.model.OTPResponse
+import com.mcash.isnow.model.*
 import com.mcash.isnow.repository.AuthRepository
 import com.mcash.isnow.retrofit.AuthService
 import javax.inject.Inject
@@ -57,6 +54,43 @@ class AuthRepositoryImpl @Inject constructor(
             val response = authService.borrow(params)
             response
         }catch (t: Throwable){
+            throw t
+        }
+    }
+
+    override suspend fun repayLoan(params: HashMap<String, Any>): LoanRepay {
+        return try {
+            val response = authService.repayLoan(params)
+            response
+        }
+        catch (t: Throwable){
+            throw t
+        }
+    }
+
+    override suspend fun makeContribution(params: HashMap<String, Any>): Contribution {
+        return try {
+            authService.makeContribution(params)
+        }
+        catch (t: Throwable){
+            throw t
+        }
+    }
+
+    override suspend fun getContributionProducts(params: HashMap<String, Any>): ContributionProducts {
+        return try {
+            authService.getContProducts(params)
+        }
+        catch (t: Throwable){
+            throw t
+        }
+    }
+
+    override suspend fun getContributionList(id: String, params: HashMap<String, Any>): ContributionList {
+        return try {
+            authService.getContList(id, params)
+        }
+        catch (t: Throwable){
             throw t
         }
     }

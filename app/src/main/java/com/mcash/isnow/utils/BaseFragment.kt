@@ -9,6 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.navigation.NavDirections
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.mcash.isnow.model.User
 
@@ -54,16 +57,16 @@ abstract class BaseFragment<VB : ViewBinding>(
         _binding = null
     }
 
-//    protected fun navigate(direction: NavDirections) = findNavController().navigate(direction)
-//
-//    protected fun navigateClearBackstack(destination: Int, bundle: Bundle?) =
-//        findNavController().navigate(
-//            destination,
-//            bundle,
-//            NavOptions.Builder().setPopUpTo(destination, true).build()
-//        )
-//
-//    protected fun navigateUp() = findNavController().navigateUp()
+    protected fun navigate(direction: NavDirections) = findNavController().navigate(direction)
+
+    protected fun navigateClearBackstack(destination: Int, bundle: Bundle?) =
+        findNavController().navigate(
+            destination,
+            bundle,
+            NavOptions.Builder().setPopUpTo(destination, true).build()
+        )
+
+    protected fun navigateUp() = findNavController().navigateUp()
 
     fun init(): SharedPreferences {
         val sharedPreferences = requireActivity().getSharedPreferences(myPREFERENCES, Context.MODE_PRIVATE)
@@ -78,14 +81,15 @@ abstract class BaseFragment<VB : ViewBinding>(
         val club = pref.getString(KEY_CLUB, null)
         val loan = pref.getString(KEY_LOAN, null)
         val contributions = pref.getString(KEY_CONT, null)
+        val gender = pref.getString(KEY_GENDER, null)
 
-        return User(name, id, ic, club, loan, contributions)
+        return User(name, id, ic, club, loan, contributions, gender)
 
     }
 
-    fun getIC(): String {
+    fun getIC(): String? {
         val pref = init()
-        val ic = pref.getString(KEY_IC, "ic")
+        val ic = pref.getString(KEY_IC, "Default")
         return ic!!
     }
 
@@ -103,11 +107,40 @@ abstract class BaseFragment<VB : ViewBinding>(
         editor.commit()
     }
 
+    fun storeGender(gender:String) {
+        val pref = init()
+        val editor = pref.edit()
+        editor.putString(KEY_GENDER, gender)
+        editor.apply()
+        editor.commit()
+    }
+
+    fun getGender(): String? {
+        val pref = init()
+        val gender = pref.getString(KEY_GENDER, "Default")
+        return gender!!
+    }
+
+    fun storeUserName(name:String) {
+        val pref = init()
+        val editor = pref.edit()
+        editor.putString(KEY_USER, name)
+        editor.apply()
+        editor.commit()
+    }
+
+    fun getUserName(): String? {
+        val pref = init()
+        val email = pref.getString(KEY_USER, "Default")
+        return email!!
+    }
 
     fun logout(){
         val pref = init()
         val editor = pref.edit()
         editor.remove(KEY_EMAIL)
+        editor.remove(KEY_USER)
+        editor.remove(KEY_GENDER)
         Log.d("Email Frag", KEY_EMAIL)
         editor.apply()
  //       editor.commit()

@@ -46,6 +46,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/payLy"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
@@ -53,8 +54,8 @@
         android:fontFamily="@font/lato_black"
         android:background="#E6E3E3"
         android:layout_marginTop="@dimen/_5sdp"
-        android:padding="@dimen/_5sdp"
         app:endIconMode="dropdown_menu"
+        android:hint="@string/pay"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mtvPayLy">
 
@@ -62,9 +63,8 @@
             android:id="@+id/payment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/pay"
             android:maxLines="1"
-            android:padding="@dimen/_5sdp"
+            android:layout_margin="@dimen/_2sdp"
             android:textColor="@color/black"
             android:textSize="@dimen/_15ssp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -84,13 +84,13 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/productLy"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:background="#E6E3E3"
-        android:padding="@dimen/_5sdp"
         app:endIconMode="dropdown_menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mtvProductLy">
@@ -101,7 +101,6 @@
             android:layout_height="match_parent"
             android:hint="@string/loan_p"
             android:maxLines="1"
-            android:padding="@dimen/_5sdp"
             android:textColor="@color/black"
             android:textSize="@dimen/_15ssp" />
     </com.google.android.material.textfield.TextInputLayout>

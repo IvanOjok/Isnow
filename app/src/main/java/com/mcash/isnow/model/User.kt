@@ -6,5 +6,6 @@ data class User(
     val ic:String?,
     val club:String?,
     val loan:String?,
-    val contributions:String?
+    val contributions:String?,
+    val gender:String?
 )
